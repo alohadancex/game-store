@@ -4,7 +4,10 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import { Header } from './components/header'
+import { GamePage } from './pages/game-page/game-page'
 import { HomePage } from './pages/home-page'
+import { OrderPage } from './pages/order-page'
+
 import { store } from './redux'
 
 function App() {
@@ -14,8 +17,14 @@ function App() {
 				<div className='App'>
 					<Header />
 					<Switch>
-						<Route path='/'>
+						<Route exact path='/'>
 							<HomePage />
+						</Route>
+						<Route exact path='/app/:title'>
+							<GamePage />
+						</Route>
+						<Route exact path='/order'>
+							<OrderPage />
 						</Route>
 					</Switch>
 				</div>
